@@ -76,6 +76,6 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-CSRF_TRUSTED_ORIGINS = ['https://sizning-repo-nomiz.husan.com']
+CSRF_TRUSTED_ORIGINS = ['https://sizning-repo-nomiz.onrender.com']
 
 
