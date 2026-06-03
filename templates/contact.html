@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+{% block content %}
+<!-- Hero Section -->
+<div style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); margin: -30px -30px 30px -30px; padding: 80px 30px; border-radius: 0 0 50px 50px; color: white; text-align: center; position: relative; overflow: hidden;">
+    <!-- Dekorativ elementlar -->
+    <div style="position: absolute; top: -50px; right: -50px; width: 300px; height: 300px; background: rgba(255,255,255,0.05); border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: -80px; left: -80px; width: 400px; height: 400px; background: rgba(255,255,255,0.05); border-radius: 50%;"></div>
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: rgba(255,255,255,0.02); border-radius: 50%;"></div>
+    
+    <div style="position: relative; z-index: 2;">
+        <div style="font-size: 80px; margin-bottom: 20px; animation: bounce 2s infinite;">📞</div>
+        <h1 style="font-size: 56px; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Biz bilan bog'laning</h1>
+        <p style="font-size: 22px; max-width: 700px; margin: 0 auto; opacity: 0.95;">Savollaringiz bormi? Taklif va murojaatlaringizni kutib qolamiz. 24/7 aloqadamiz!</p>
+    </div>
+</div>
+
+<style>
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    
+    .contact-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .social-icon:hover {
+        transform: scale(1.2);
+        background: #1e3c72;
+        color: white;
+    }
+</style>
+
+<!-- Asosiy kontakt ma'lumotlari -->
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 50px;">
+    <div class="contact-card" style="background: white; padding: 40px 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s; border-bottom: 5px solid #1e3c72;">
+        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #1e3c7220, #2a529820); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 40px; color: #1e3c72;">📍</div>
+        <h3 style="color: #1e3c72; margin-bottom: 15px; font-size: 24px;">Manzil</h3>
+        <p style="color: #666; line-height: 1.8; font-size: 18px;">Toshkent sh., Amir Temur ko'chasi, 100-uy</p>
+        <p style="color: #999; margin-top: 15px;">Mo'ljal: Oliy Majlis binosi yonida</p>
+    </div>
+    
+    <div class="contact-card" style="background: white; padding: 40px 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s; border-bottom: 5px solid #2a5298;">
+        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #1e3c7220, #2a529820); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 40px; color: #2a5298;">📧</div>
+        <h3 style="color: #2a5298; margin-bottom: 15px; font-size: 24px;">Email</h3>
+        <p style="color: #666; line-height: 1.8; font-size: 18px;">info@kutubxona.uz</p>
+        <p style="color: #666;">support@kutubxona.uz</p>
+        <p style="color: #999; margin-top: 15px;">24 soat ichida javob beramiz</p>
+    </div>
+    
+    <div class="contact-card" style="background: white; padding: 40px 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s; border-bottom: 5px solid #1e3c72;">
+        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #1e3c7220, #2a529820); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 40px; color: #1e3c72;">📞</div>
+        <h3 style="color: #1e3c72; margin-bottom: 15px; font-size: 24px;">Telefon</h3>
+        <p style="color: #666; line-height: 1.8; font-size: 18px;">+998 71 123-45-67</p>
+        <p style="color: #666;">+998 90 123-45-67</p>
+        <p style="color: #999; margin-top: 15px;">Dushanba-Juma: 9:00-20:00</p>
+    </div>
+</div>
+
+<!-- Xarita va forma qismi -->
+<div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; margin-bottom: 60px;">
+    <!-- Xarita qismi -->
+    <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        <div style="background: linear-gradient(135deg, #1e3c72, #2a5298); padding: 20px; color: white;">
+            <h3 style="font-size: 24px;">📍 Kutubxona xaritada</h3>
+            <p>Amir Temur ko'chasi, 100-uy</p>
+        </div>
+        <div style="height: 400px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; position: relative;">
+            <!-- Bu yerda Google Maps yoki Yandex Maps integratsiyasi bo'lishi mumkin -->
+            <div style="text-align: center;">
+                <div style="font-size: 60px; margin-bottom: 20px;">🗺️</div>
+                <p style="color: #666; margin-bottom: 10px;">Google Maps xaritasi</p>
+                <p style="color: #999;">Amir Temur ko'chasi, 100</p>
+                <a href="#" style="display: inline-block; margin-top: 20px; color: #1e3c72; text-decoration: none;">Katta xaritada ko'rish →</a>
+            </div>
+            
+            <!-- Manzil belgisi -->
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                <div style="position: relative;">
+                    <div style="width: 30px; height: 30px; background: #ff6b6b; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 5px 15px rgba(255,107,107,0.4);"></div>
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 16px; height: 16px; background: white; border-radius: 50%;"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Yaqin atrofdagi joylar -->
+        <div style="padding: 20px; border-top: 2px solid #f0f0f0;">
+            <h4 style="color: #333; margin-bottom: 15px;">🏢 Yaqin atrofdagi joylar:</h4>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="color: #1e3c72;">🏛️</span>
+                    <span style="color: #666;">Oliy Majlis</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="color: #2a5298;">🏢</span>
+                    <span style="color: #666;">Mustaqillik maydoni</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="color: #1e3c72;">🏨</span>
+                    <span style="color: #666;">Hotel Uzbekistan</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Kontakt forma -->
+    <div style="background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        <h2 style="color: #1e3c72; margin-bottom: 30px; font-size: 32px;">✍️ Xabar yuborish</h2>
+        
+        <form method="post" action="{% url 'contact' %}">
+            {% csrf_token %}
+            
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; color: #333; margin-bottom: 8px; font-weight: 500;">Ismingiz</label>
+                <input type="text" name="name" required placeholder="Ismingizni kiriting" style="width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 12px; font-size: 16px; transition: all 0.3s;">
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; color: #333; margin-bottom: 8px; font-weight: 500;">Email</label>
+                <input type="email" name="email" required placeholder="email@example.com" style="width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 12px; font-size: 16px; transition: all 0.3s;">
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; color: #333; margin-bottom: 8px; font-weight: 500;">Telefon (ixtiyoriy)</label>
+                <input type="tel" name="phone" placeholder="+998 90 123-45-67" style="width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 12px; font-size: 16px;">
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; color: #333; margin-bottom: 8px; font-weight: 500;">Murojaat mavzusi</label>
+                <select name="subject" style="width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 12px; font-size: 16px;">
+                    <option>Umumiy savol</option>
+                    <option>Kitob buyurtma qilish</option>
+                    <option>Hamkorlik taklifi</option>
+                    <option>Shikoyat va takliflar</option>
+                    <option>Boshqa</option>
+                </select>
+            </div>
+            
+            <div style="margin-bottom: 25px;">
+                <label style="display: block; color: #333; margin-bottom: 8px; font-weight: 500;">Xabar matni</label>
+                <textarea name="message" rows="5" required placeholder="Xabaringizni yozing..." style="width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 12px; font-size: 16px; resize: vertical;"></textarea>
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                    <input type="checkbox" name="agree" required style="width: 20px; height: 20px;">
+                    <span style="color: #666;">Shaxsiy ma'lumotlarni qayta ishlashga roziman</span>
+                </label>
+            </div>
+            
+            <button type="submit" style="width: 100%; background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 18px; border: none; border-radius: 12px; font-size: 18px; font-weight: 600; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <span>📨</span> Xabarni yuborish
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- Ish vaqti va qo'shimcha ma'lumotlar -->
+<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-bottom: 60px;">
+    <div style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center;">
+        <div style="font-size: 40px; margin-bottom: 10px;">🕒</div>
+        <h4 style="color: #1e3c72; margin-bottom: 10px;">Ish vaqti</h4>
+        <p style="color: #666;">Dushanba-Juma</p>
+        <p style="color: #333; font-weight: bold;">9:00 - 20:00</p>
+        <p style="color: #666; margin-top: 5px;">Shanba</p>
+        <p style="color: #333; font-weight: bold;">10:00 - 18:00</p>
+        <p style="color: #999; margin-top: 5px;">Yakshanba dam olish</p>
+    </div>
+    
+    <div style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center;">
+        <div style="font-size: 40px; margin-bottom: 10px;">☕</div>
+        <h4 style="color: #1e3c72; margin-bottom: 10px;">Qulayliklar</h4>
+        <p style="color: #666;">Wi-Fi bepul</p>
+        <p style="color: #666;">Konditsioner</p>
+        <p style="color: #666;">Kafe/buffet</p>
+        <p style="color: #666;">Avtoturargoh</p>
+    </div>
+    
+    <div style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center;">
+        <div style="font-size: 40px; margin-bottom: 10px;">👥</div>
+        <h4 style="color: #1e3c72; margin-bottom: 10px;">Xodimlar</h4>
+        <p style="color: #666;">15+ tajribali xodim</p>
+        <p style="color: #666;">3 til: O'zbek, Rus, Ingliz</p>
+        <p style="color: #666;">24/7 onlayn yordam</p>
+    </div>
+    
+    <div style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center;">
+        <div style="font-size: 40px; margin-bottom: 10px;">📊</div>
+        <h4 style="color: #1e3c72; margin-bottom: 10px;">Statistika</h4>
+        <p style="color: #666;">10K+ kitoblar</p>
+        <p style="color: #666;">5K+ kitobxonlar</p>
+        <p style="color: #666;">1K+ tadbirlar</p>
+    </div>
+</div>
+
+<!-- Tez-tez so'raladigan savollar -->
+<div style="margin-bottom: 60px;">
+    <h2 style="text-align: center; color: #1e3c72; font-size: 36px; margin-bottom: 40px;">❓ Tez-tez so'raladigan savollar</h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px;">
+        <div style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+            <h4 style="color: #1e3c72; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                <span style="background: #1e3c72; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">1</span>
+                Kitobxonlik guvohnomasini qanday olish mumkin?
+            </h4>
+            <p style="color: #666; line-height: 1.6;">Kutubxonaga tashrif buyurib, pasport va 1 ta foto surat bilan murojaat qilishingiz kerak. Guvohnoma 10 daqiqada tayyor bo'ladi.</p>
+        </div>
+        
+        <div style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+            <h4 style="color: #1e3c72; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                <span style="background: #1e3c72; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">2</span>
+                Kitoblarni uyga olib ketish mumkinmi?
+            </h4>
+            <p style="color: #666; line-height: 1.6;">Ha, kitobxonlik guvohnomasi bilan 2 hafta muddatga 3 tagacha kitobni uyga olib ketishingiz mumkin.</p>
+        </div>
+        
+        <div style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+            <h4 style="color: #1e3c72; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                <span style="background: #1e3c72; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">3</span>
+                Elektron kitoblar bormi?
+            </h4>
+            <p style="color: #666; line-height: 1.6;">Ha, 2000+ elektron kitoblar mavjud. Ular mobil ilova orqali bepul o'qish mumkin.</p>
+        </div>
+        
+        <div style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+            <h4 style="color: #1e3c72; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                <span style="background: #1e3c72; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">4</span>
+                Tadbirlarga qanday yozilish mumkin?
+            </h4>
+            <p style="color: #666; line-height: 1.6;">Barcha tadbirlar bepul. Telegram kanalimiz orqali yoki kutubxonaga kelib ro'yxatdan o'tishingiz mumkin.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Ijtimoiy tarmoqlar -->
+<div style="background: linear-gradient(135deg, #1e3c72, #2a5298); margin: 60px -30px -30px -30px; padding: 60px 30px; color: white;">
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 36px; margin-bottom: 20px;">🌐 Bizni kuzatib boring</h2>
+        <p style="font-size: 20px; margin-bottom: 40px; opacity: 0.9;">Eng so'nggi yangiliklar va tadbirlardan xabardor bo'ling</p>
+        
+        <div style="display: flex; justify-content: center; gap: 25px; margin-bottom: 40px;">
+            <a href="#" class="social-icon" style="width: 70px; height: 70px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; text-decoration: none; color: white; transition: all 0.3s;">📘</a>
+            <a href="#" class="social-icon" style="width: 70px; height: 70px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; text-decoration: none; color: white; transition: all 0.3s;">📸</a>
+            <a href="#" class="social-icon" style="width: 70px; height: 70px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; text-decoration: none; color: white; transition: all 0.3s;">📱</a>
+            <a href="#" class="social-icon" style="width: 70px; height: 70px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; text-decoration: none; color: white; transition: all 0.3s;">💬</a>
+            <a href="#" class="social-icon" style="width: 70px; height: 70px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; text-decoration: none; color: white; transition: all 0.3s;">▶️</a>
+        </div>
+        
+        <div style="display: flex; justify-content: center; gap: 40px; font-size: 18px;">
+            <div>
+                <span style="font-size: 30px; display: block; margin-bottom: 10px;">5K+</span>
+                <span>Telegram obunachilar</span>
+            </div>
+            <div>
+                <span style="font-size: 30px; display: block; margin-bottom: 10px;">3K+</span>
+                <span>Instagram obunachilar</span>
+            </div>
+            <div>
+                <span style="font-size: 30px; display: block; margin-bottom: 10px;">2K+</span>
+                <span>Facebook obunachilar</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Xabar yuborilganda ko'rinadigan qism (agar xabar yuborilsa) -->
+{% if messages %}
+<div style="position: fixed; top: 20px; right: 20px; background: linear-gradient(135deg, #28a745, #20c997); color: white; padding: 20px 30px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 9999; animation: slideInRight 0.5s;">
+    <div style="display: flex; align-items: center; gap: 15px;">
+        <span style="font-size: 30px;">✅</span>
+        <div>
+            <h4 style="margin-bottom: 5px;">Xabar yuborildi!</h4>
+            <p style="opacity: 0.9;">Tez orada siz bilan bog'lanamiz.</p>
+        </div>
+        <button onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: white; font-size: 20px; cursor: pointer; margin-left: 20px;">×</button>
+    </div>
+</div>
+{% endif %}
+
+<style>
+    .contact-card {
+        transition: all 0.3s;
+    }
+    
+    .contact-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .social-icon {
+        transition: all 0.3s;
+    }
+    
+    .social-icon:hover {
+        transform: scale(1.2);
+        background: white !important;
+        color: #1e3c72 !important;
+    }
+    
+    input:focus, textarea:focus, select:focus {
+        border-color: #1e3c72 !important;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(30,60,114,0.1);
+    }
+    
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    
+    button[type="submit"]:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(30,60,114,0.4);
+    }
+</style>
+{% endblock %}
+</body>
+</html>

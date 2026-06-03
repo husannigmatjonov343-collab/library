@@ -1,0 +1,239 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Hero Section -->
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); margin: -30px -30px 30px -30px; padding: 60px 30px; border-radius: 0 0 50px 50px; color: white; text-align: center;">
+    <h1 style="font-size: 48px; margin-bottom: 15px;">📑 Barcha maqolalar va kitoblar</h1>
+    <p style="font-size: 20px; max-width: 700px; margin: 0 auto; opacity: 0.95;">Kutubxonamizdagi barcha maqolalar, kitoblar va adabiyotlar to'plami</p>
+    
+    <!-- Qidiruv qismi -->
+    <div style="max-width: 600px; margin: 40px auto 0;">
+        <form method="get" style="display: flex; gap: 10px;">
+            <input type="text" name="search" placeholder="Kitob yoki maqola qidirish..." style="flex: 1; padding: 15px 20px; border: none; border-radius: 50px; font-size: 16px;" value="{{ request.GET.search }}">
+            <button type="submit" style="background: white; color: #764ba2; border: none; padding: 15px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; transition: transform 0.3s;">🔍 Qidirish</button>
+        </form>
+    </div>
+</div>
+
+<!-- Filtr va sort qismi -->
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+    <div>
+        <span style="color: #666; margin-right: 15px;">📊 Jami: <strong>{{ articles.count }}</strong> ta maqola</span>
+        <span style="color: #666;">📚 Kitoblar: <strong>{{ articles.count }}</strong> ta</span>
+    </div>
+    
+    <div style="display: flex; gap: 10px;">
+        <select style="padding: 10px 20px; border: 1px solid #e0e0e0; border-radius: 10px; background: white; cursor: pointer;">
+            <option>Barcha kategoriyalar</option>
+            <option>Badiiy kitoblar</option>
+            <option>Ilmiy adabiyotlar</option>
+            <option>Tarixiy kitoblar</option>
+            <option>Texnik adabiyotlar</option>
+            <option>Bolalar adabiyoti</option>
+        </select>
+        
+        <select style="padding: 10px 20px; border: 1px solid #e0e0e0; border-radius: 10px; background: white; cursor: pointer;">
+            <option>So'nggi qo'shilganlar</option>
+            <option>Eng ko'p o'qilganlar</option>
+            <option>Eng ko'p kommentariyalar</option>
+            <option>Nomi bo'yicha (A-Z)</option>
+            <option>Nomi bo'yicha (Z-A)</option>
+        </select>
+    </div>
+</div>
+
+<!-- Grid ko'rinishida maqolalar -->
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 50px;">
+    {% for article in articles %}
+    <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; position: relative; border: 1px solid #f0f0f0;">
+        <!-- Kitob rasmi -->
+        <div style="position: relative; height: 250px; overflow: hidden;">
+            {% if article.image %}
+                <img src="{{ article.image.url }}" alt="{{ article.title }}" style="width: 100%; height: 100%; object-fit: cover;">
+            {% else %}
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #667eea20, #764ba220); display: flex; align-items: center; justify-content: center; position: relative;">
+                    <div style="font-size: 80px; color: #764ba2; opacity: 0.5;">📚</div>
+                    <!-- Kitob muqovasi effekti -->
+                    <div style="position: absolute; top: 20px; left: 20px; right: 20px; bottom: 20px; border: 2px dashed #764ba2; border-radius: 10px;"></div>
+                </div>
+            {% endif %}
+            
+            <!-- Kategoriya yorlig'i -->
+            <div style="position: absolute; top: 20px; left: 20px; background: rgba(255,255,255,0.95); padding: 8px 20px; border-radius: 25px; font-size: 14px; font-weight: 500; color: #764ba2; box-shadow: 0 5px 10px rgba(0,0,0,0.1);">
+                🏷️ {{ article.category.name|default:"Kitob" }}
+            </div>
+            
+            <!-- Reyting yulduzlari -->
+            <div style="position: absolute; bottom: 20px; right: 20px; background: rgba(255,255,255,0.95); padding: 5px 15px; border-radius: 25px; font-size: 14px; color: #ffc107; box-shadow: 0 5px 10px rgba(0,0,0,0.1);">
+                ⭐ 4.8
+            </div>
+        </div>
+        
+        <!-- Kitob ma'lumotlari -->
+        <div style="padding: 25px;">
+            <h3 style="color: #333; margin-bottom: 10px; font-size: 20px; line-height: 1.4;">{{ article.title }}</h3>
+            
+            <p style="color: #666; line-height: 1.8; margin-bottom: 20px; font-size: 15px;">{{ article.content|truncatewords:25 }}</p>
+            
+            <!-- Meta ma'lumotlar -->
+            <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #f0f0f0;">
+                <div style="display: flex; align-items: center; gap: 5px; color: #888; font-size: 14px;">
+                    <span style="font-size: 16px;">👤</span> {{ article.author.username }}
+                </div>
+                <div style="display: flex; align-items: center; gap: 5px; color: #888; font-size: 14px;">
+                    <span style="font-size: 16px;">📅</span> {{ article.created_date|date:"d-M-Y" }}
+                </div>
+                <div style="display: flex; align-items: center; gap: 5px; color: #888; font-size: 14px;">
+                    <span style="font-size: 16px;">💬</span> {{ article.comments_count }} ta komment
+                </div>
+                <div style="display: flex; align-items: center; gap: 5px; color: #888; font-size: 14px;">
+                    <span style="font-size: 16px;">👁️</span> 1,234 ko'rish
+                </div>
+            </div>
+            
+            <!-- Tugmalar -->
+            <div style="display: flex; gap: 10px;">
+                <a href="{% url 'article_detail' article.pk %}" style="flex: 1; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 12px; border-radius: 10px; text-decoration: none; text-align: center; font-weight: 500; transition: transform 0.3s;">📖 Batafsil o'qish</a>
+                <button style="background: #f0f0f0; border: none; width: 45px; border-radius: 10px; cursor: pointer; font-size: 20px;">❤️</button>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div style="grid-column: 1/-1; text-align: center; padding: 80px; background: #f9f9f9; border-radius: 20px;">
+        <div style="font-size: 80px; margin-bottom: 20px;">📚</div>
+        <h3 style="color: #333; margin-bottom: 10px;">Hozircha maqolalar mavjud emas</h3>
+        <p style="color: #999; font-size: 18px;">Tez orada yangi kitoblar va maqolalar qo'shiladi</p>
+        <a href="/admin/books/article/add/" class="btn" style="margin-top: 20px; display: inline-block;">Yangi maqola qo'shish</a>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Pagination (Sahifalash) -->
+{% if articles.has_other_pages %}
+<div style="display: flex; justify-content: center; gap: 10px; margin: 50px 0;">
+    <a href="#" style="padding: 12px 20px; border: 1px solid #e0e0e0; border-radius: 10px; text-decoration: none; color: #666; background: white;">«</a>
+    <a href="#" style="padding: 12px 20px; border: none; border-radius: 10px; text-decoration: none; color: white; background: linear-gradient(135deg, #667eea, #764ba2);">1</a>
+    <a href="#" style="padding: 12px 20px; border: 1px solid #e0e0e0; border-radius: 10px; text-decoration: none; color: #666; background: white;">2</a>
+    <a href="#" style="padding: 12px 20px; border: 1px solid #e0e0e0; border-radius: 10px; text-decoration: none; color: #666; background: white;">3</a>
+    <a href="#" style="padding: 12px 20px; border: 1px solid #e0e0e0; border-radius: 10px; text-decoration: none; color: #666; background: white;">4</a>
+    <a href="#" style="padding: 12px 20px; border: 1px solid #e0e0e0; border-radius: 10px; text-decoration: none; color: #666; background: white;">5</a>
+    <a href="#" style="padding: 12px 20px; border: 1px solid #e0e0e0; border-radius: 10px; text-decoration: none; color: #666; background: white;">»</a>
+</div>
+{% endif %}
+
+<!-- Tavsiya etilgan kitoblar -->
+<div style="background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%); margin: 50px -30px 0; padding: 60px 30px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="text-align: center; font-size: 36px; color: #333; margin-bottom: 15px;">🔥 Mashhur kitoblar</h2>
+        <p style="text-align: center; color: #666; font-size: 18px; margin-bottom: 40px;">Eng ko'p o'qilgan va yuqori baholangan kitoblar</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px;">
+            <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <div style="height: 180px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: white; font-size: 60px;">📖</div>
+                <div style="padding: 20px;">
+                    <h4 style="color: #333; margin-bottom: 5px;">Atomic Habits</h4>
+                    <p style="color: #999; font-size: 14px;">James Clear</p>
+                    <div style="display: flex; align-items: center; gap: 5px; margin-top: 10px;">
+                        <span style="color: #ffc107;">⭐⭐⭐⭐⭐</span>
+                        <span style="color: #666;">(4.9)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <div style="height: 180px; background: linear-gradient(135deg, #764ba2, #667eea); display: flex; align-items: center; justify-content: center; color: white; font-size: 60px;">📚</div>
+                <div style="padding: 20px;">
+                    <h4 style="color: #333; margin-bottom: 5px;">O'tkan kunlar</h4>
+                    <p style="color: #999; font-size: 14px;">Abdulla Qodiriy</p>
+                    <div style="display: flex; align-items: center; gap: 5px; margin-top: 10px;">
+                        <span style="color: #ffc107;">⭐⭐⭐⭐⭐</span>
+                        <span style="color: #666;">(4.8)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <div style="height: 180px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: white; font-size: 60px;">📘</div>
+                <div style="padding: 20px;">
+                    <h4 style="color: #333; margin-bottom: 5px;">Shum bola</h4>
+                    <p style="color: #999; font-size: 14px;">G'afur G'ulom</p>
+                    <div style="display: flex; align-items: center; gap: 5px; margin-top: 10px;">
+                        <span style="color: #ffc107;">⭐⭐⭐⭐⭐</span>
+                        <span style="color: #666;">(4.7)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <div style="height: 180px; background: linear-gradient(135deg, #764ba2, #667eea); display: flex; align-items: center; justify-content: center; color: white; font-size: 60px;">📙</div>
+                <div style="padding: 20px;">
+                    <h4 style="color: #333; margin-bottom: 5px;">Dunyoning ishlari</h4>
+                    <p style="color: #999; font-size: 14px;">O'tkir Hoshimov</p>
+                    <div style="display: flex; align-items: center; gap: 5px; margin-top: 10px;">
+                        <span style="color: #ffc107;">⭐⭐⭐⭐⭐</span>
+                        <span style="color: #666;">(4.9)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#" style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 500; display: inline-block; transition: transform 0.3s;">Barcha mashhur kitoblar →</a>
+        </div>
+    </div>
+</div>
+
+<!-- Kategoriyalar buluti -->
+<div style="margin: 50px 0;">
+    <h2 style="text-align: center; font-size: 32px; color: #333; margin-bottom: 30px;">🏷️ Kategoriyalar buluti</h2>
+    
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 800px; margin: 0 auto;">
+        <a href="#" style="background: #f0f0f0; color: #333; padding: 10px 25px; border-radius: 30px; text-decoration: none; font-size: 18px;">📚 Badiiy (45)</a>
+        <a href="#" style="background: #f0f0f0; color: #333; padding: 10px 25px; border-radius: 30px; text-decoration: none; font-size: 22px; font-weight: bold;">🔬 Ilmiy (32)</a>
+        <a href="#" style="background: #f0f0f0; color: #333; padding: 10px 25px; border-radius: 30px; text-decoration: none; font-size: 16px;">📖 Tarixiy (28)</a>
+        <a href="#" style="background: #f0f0f0; color: #333; padding: 10px 25px; border-radius: 30px; text-decoration: none; font-size: 20px;">💻 Texnik (24)</a>
+        <a href="#" style="background: #f0f0f0; color: #333; padding: 10px 25px; border-radius: 30px; text-decoration: none; font-size: 24px; font-weight: bold;">🧒 Bolalar (36)</a>
+        <a href="#" style="background: #f0f0f0; color: #333; padding: 10px 25px; border-radius: 30px; text-decoration: none; font-size: 18px;">🌍 Jahon (42)</a>
+        <a href="#" style="background: #f0f0f0; color: #333; padding: 10px 25px; border-radius: 30px; text-decoration: none; font-size: 14px;">🎭 Drama (18)</a>
+        <a href="#" style="background: #f0f0f0; color: #333; padding: 10px 25px; border-radius: 30px; text-decoration: none; font-size: 20px;">🔮 Fantastika (22)</a>
+        <a href="#" style="background: #f0f0f0; color: #333; padding: 10px 25px; border-radius: 30px; text-decoration: none; font-size: 26px; font-weight: bold;">📝 She'riyat (31)</a>
+    </div>
+</div>
+
+<!-- Statistika -->
+<div style="background: white; border-radius: 30px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin: 50px 0;">
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 30px; text-align: center;">
+        <div>
+            <div style="font-size: 48px; margin-bottom: 10px;">📚</div>
+            <h3 style="font-size: 32px; color: #333;">342</h3>
+            <p style="color: #666;">Jami maqolalar</p>
+        </div>
+        
+        <div>
+            <div style="font-size: 48px; margin-bottom: 10px;">👥</div>
+            <h3 style="font-size: 32px; color: #333;">5.2K</h3>
+            <p style="color: #666;">Kitobxonlar</p>
+        </div>
+        
+        <div>
+            <div style="font-size: 48px; margin-bottom: 10px;">💬</div>
+            <h3 style="font-size: 32px; color: #333;">1.8K</h3>
+            <p style="color: #666;">Kommentariyalar</p>
+        </div>
+        
+        <div>
+            <div style="font-size: 48px; margin-bottom: 10px;">🏷️</div>
+            <h3 style="font-size: 32px; color: #333;">24</h3>
+            <p style="color: #666;">Kategoriyalar</p>
+        </div>
+        
+        <div>
+            <div style="font-size: 48px; margin-bottom: 10px;">✍️</div>
+            <h3 style="font-size: 32px; color: #333;">86</h3>
+            <p style="color: #666;">Mualliflar</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

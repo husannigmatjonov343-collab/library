@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+{% block content %}
+<div style="max-width: 1000px; margin: 0 auto;">
+    <!-- Sarlavha -->
+    <div style="text-align: center; margin-bottom: 50px;">
+        <h1 style="font-size: 48px; color: #333; margin-bottom: 20px;">📚 Biz haqimizda</h1>
+        <div style="width: 100px; height: 4px; background: linear-gradient(135deg, #667eea, #764ba2); margin: 20px auto;"></div>
+        <p style="font-size: 20px; color: #666; max-width: 700px; margin: 20px auto;">Kitobsevar va bilimga changoq insonlar uchun yaratilgan zamonaviy kutubxona</p>
+    </div>
+    
+    <!-- Asosiy matn -->
+    <div style="background: #f9f9f9; padding: 40px; border-radius: 20px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        <h2 style="color: #333; margin-bottom: 25px; font-size: 28px;">🌟 Kutubxonamiz haqida</h2>
+        <p style="color: #555; line-height: 1.9; font-size: 17px; margin-bottom: 20px;">
+            Bizning kutubxona 2020-yilda tashkil etilgan bo'lib, bugungi kunda 10 000 dan ortiq kitob fondiga ega. 
+            Kutubxonamizda badiiy, ilmiy, tarixiy, texnik va bolalar adabiyotlarining eng sara namunalari to'plangan. 
+            Maqsadimiz - har bir kitobxonga kerakli kitobni topish imkoniyatini yaratish va o'qish madaniyatini rivojlantirish.
+        </p>
+        <p style="color: #555; line-height: 1.9; font-size: 17px;">
+            Kutubxonamizda zamonaviy axborot texnologiyalari joriy etilgan bo'lib, elektron katalog orqali kitob qidirish, 
+            onlayn buyurtma berish va kitoblarni uzoq muddatga bron qilish imkoniyati mavjud. Shuningdek, kitobxonlar uchun 
+            qulay o'qish zallari, Wi-Fi zonasi va dam olish maskanlari tashkil etilgan.
+        </p>
+    </div>
+    
+    <!-- Statistika -->
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 50px;">
+        <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid #f0f0f0;">
+            <div style="font-size: 40px; margin-bottom: 15px;">📊</div>
+            <h3 style="font-size: 32px; color: #764ba2;">10K+</h3>
+            <p style="color: #666;">Kitoblar fondi</p>
+        </div>
+        
+        <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid #f0f0f0;">
+            <div style="font-size: 40px; margin-bottom: 15px;">👥</div>
+            <h3 style="font-size: 32px; color: #764ba2;">5K+</h3>
+            <p style="color: #666;">Faol kitobxonlar</p>
+        </div>
+        
+        <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid #f0f0f0;">
+            <div style="font-size: 40px; margin-bottom: 15px;">🏆</div>
+            <h3 style="font-size: 32px; color: #764ba2;">15+</h3>
+            <p style="color: #666;">Mutaxassislar</p>
+        </div>
+        
+        <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid #f0f0f0;">
+            <div style="font-size: 40px; margin-bottom: 15px;">📅</div>
+            <h3 style="font-size: 32px; color: #764ba2;">365</h3>
+            <p style="color: #666;">Ish kuni</p>
+        </div>
+    </div>
+    
+    <!-- Bizning afzalliklarimiz -->
+    <div style="margin-bottom: 50px;">
+        <h2 style="text-align: center; color: #333; margin-bottom: 40px; font-size: 32px;">✨ Nega aynan biz?</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px;">
+            <div style="display: flex; align-items: start; gap: 15px; background: #f9f9f9; padding: 25px; border-radius: 15px;">
+                <div style="font-size: 30px;">📖</div>
+                <div>
+                    <h3 style="color: #333; margin-bottom: 10px;">Boy kitob fondi</h3>
+                    <p style="color: #666; line-height: 1.6;">10 000 dan ortiq kitoblar, jumladan nodir va qimmatbaho nashrlar</p>
+                </div>
+            </div>
+            
+            <div style="display: flex; align-items: start; gap: 15px; background: #f9f9f9; padding: 25px; border-radius: 15px;">
+                <div style="font-size: 30px;">💻</div>
+                <div>
+                    <h3 style="color: #333; margin-bottom: 10px;">Zamonaviy texnologiyalar</h3>
+                    <p style="color: #666; line-height: 1.6;">Elektron katalog, onlayn buyurtma, QR kod orqali kitob qidirish</p>
+                </div>
+            </div>
+            
+            <div style="display: flex; align-items: start; gap: 15px; background: #f9f9f9; padding: 25px; border-radius: 15px;">
+                <div style="font-size: 30px;">🪑</div>
+                <div>
+                    <h3 style="color: #333; margin-bottom: 10px;">Qulay o'qish zallari</h3>
+                    <p style="color: #666; line-height: 1.6;">200 o'rinli zamonaviy o'qish zali, Wi-Fi, konditsioner</p>
+                </div>
+            </div>
+            
+            <div style="display: flex; align-items: start; gap: 15px; background: #f9f9f9; padding: 25px; border-radius: 15px;">
+                <div style="font-size: 30px;">🎓</div>
+                <div>
+                    <h3 style="color: #333; margin-bottom: 10px;">Malakali xodimlar</h3>
+                    <p style="color: #666; line-height: 1.6;">15 dan ortiq tajribali kutubxonachi va mutaxassislar</p>
+                </div>
+            </div>
+            
+            <div style="display: flex; align-items: start; gap: 15px; background: #f9f9f9; padding: 25px; border-radius: 15px;">
+                <div style="font-size: 30px;">🎉</div>
+                <div>
+                    <h3 style="color: #333; margin-bottom: 10px;">Madaniy tadbirlar</h3>
+                    <p style="color: #666; line-height: 1.6;">Har oyda kitob taqdimotlari, adabiy kechalar, uchrashuvlar</p>
+                </div>
+            </div>
+            
+            <div style="display: flex; align-items: start; gap: 15px; background: #f9f9f9; padding: 25px; border-radius: 15px;">
+                <div style="font-size: 30px;">🕒</div>
+                <div>
+                    <h3 style="color: #333; margin-bottom: 10px;">Qulay ish vaqti</h3>
+                    <p style="color: #666; line-height: 1.6;">Dushanbadan shanbagacha 9:00 dan 20:00 gacha</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tarix va missiya -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px;">
+        <div style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 40px; border-radius: 20px; color: white;">
+            <h3 style="font-size: 28px; margin-bottom: 20px;">🎯 Bizning missiya</h3>
+            <p style="line-height: 1.8; font-size: 17px; opacity: 0.9;">
+                Jamiyatda o'qish madaniyatini rivojlantirish, har bir insonga bilim olish imkoniyatini yaratish, 
+                kitobxonlar uchun qulay va zamonaviy muhit yaratish. Biz kitob orqali odamlarni birlashtirishga 
+                va ularning ma'naviy dunyosini boyitishga intilamiz.
+            </p>
+        </div>
+        
+        <div style="background: #f9f9f9; padding: 40px; border-radius: 20px;">
+            <h3 style="font-size: 28px; color: #333; margin-bottom: 20px;">📜 Qisqa tarix</h3>
+            <p style="color: #666; line-height: 1.8; font-size: 17px;">
+                2020-yilda kichik kitob do'koni sifatida boshlangan loyihamiz, bugungi kunda shaharning eng yirik 
+                kutubxonalaridan biriga aylandi. 5 yil ichida kitob fondimiz 10 barobarga oshdi, kitobxonlar soni 
+                5000 dan oshdi. 2023-yilda "Eng innovatsion kutubxona" mukofotiga sazovor bo'ldik.
+            </p>
+        </div>
+    </div>
+    
+    <!-- Jamoa -->
+    <div style="margin-bottom: 40px;">
+        <h2 style="text-align: center; color: #333; margin-bottom: 40px; font-size: 32px;">👨‍🏫 Bizning jamoa</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px;">
+            <div style="text-align: center; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+                <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 60px;">👩</div>
+                <h3 style="color: #333;">Karimova Malika</h3>
+                <p style="color: #764ba2; font-weight: 500; margin-bottom: 10px;">Kutubxona direktori</p>
+                <p style="color: #666;">10 yillik tajriba</p>
+            </div>
+            
+            <div style="text-align: center; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+                <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 60px;">👨</div>
+                <h3 style="color: #333;">Rahimov Jasur</h3>
+                <p style="color: #764ba2; font-weight: 500; margin-bottom: 10px;">Axborot texnologiyalari bo'limi</p>
+                <p style="color: #666;">8 yillik tajriba</p>
+            </div>
+            
+            <div style="text-align: center; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+                <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 60px;">👩</div>
+                <h3 style="color: #333;">Abdullayeva Nilufar</h3>
+                <p style="color: #764ba2; font-weight: 500; margin-bottom: 10px;">Kutubxonachi</p>
+                <p style="color: #666;">5 yillik tajriba</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Manzil va aloqa -->
+    <div style="background: #f9f9f9; padding: 40px; border-radius: 20px; margin-top: 40px;">
+        <h2 style="text-align: center; color: #333; margin-bottom: 30px; font-size: 32px;">📍 Manzil va aloqa</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;">
+            <div>
+                <div style="margin-bottom: 25px; display: flex; align-items: center; gap: 15px;">
+                    <div style="font-size: 24px;">🏢</div>
+                    <div>
+                        <h3 style="color: #333; margin-bottom: 5px;">Manzil:</h3>
+                        <p style="color: #666;">Toshkent sh., Amir Temur ko'chasi, 100-uy</p>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 25px; display: flex; align-items: center; gap: 15px;">
+                    <div style="font-size: 24px;">📞</div>
+                    <div>
+                        <h3 style="color: #333; margin-bottom: 5px;">Telefon:</h3>
+                        <p style="color: #666;">+998 71 123-45-67</p>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 25px; display: flex; align-items: center; gap: 15px;">
+                    <div style="font-size: 24px;">📧</div>
+                    <div>
+                        <h3 style="color: #333; margin-bottom: 5px;">Email:</h3>
+                        <p style="color: #666;">info@kutubxona.uz</p>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 25px; display: flex; align-items: center; gap: 15px;">
+                    <div style="font-size: 24px;">🕒</div>
+                    <div>
+                        <h3 style="color: #333; margin-bottom: 5px;">Ish vaqti:</h3>
+                        <p style="color: #666;">Dushanba - Juma: 9:00 - 20:00</p>
+                        <p style="color: #666;">Shanba: 10:00 - 18:00</p>
+                        <p style="color: #666;">Yakshanba: Dam olish kuni</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: #e9ecef; border-radius: 15px; height: 300px; display: flex; align-items: center; justify-content: center;">
+                <div style="text-align: center;">
+                    <div style="font-size: 60px; margin-bottom: 20px;">🗺️</div>
+                    <p style="color: #666;">Bu yerda xarita bo'ladi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

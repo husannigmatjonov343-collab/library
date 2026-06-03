@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+{% block content %}
+<!-- Books sahifasi - KITOBLAR HAQIDA QIZIQARLI FAKTLAR -->
+<style>
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-15px); }
+        100% { transform: translateY(0px); }
+    }
+    
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    
+    @keyframes glow {
+        0% { box-shadow: 0 5px 20px rgba(139,69,19,0.2); }
+        50% { box-shadow: 0 20px 40px rgba(139,69,19,0.4); }
+        100% { box-shadow: 0 5px 20px rgba(139,69,19,0.2); }
+    }
+    
+    .fact-card {
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .fact-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+    }
+    
+    .fact-card:hover .fact-number {
+        transform: scale(1.2) rotate(10deg);
+        color: #D2691E;
+    }
+    
+    .fact-number {
+        transition: all 0.4s;
+    }
+    
+    .stat-circle {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+        font-weight: bold;
+        margin: 0 auto;
+        animation: glow 2s infinite;
+    }
+</style>
+
+<!-- Hero Section - KITOBLAR OLAMI -->
+<div style="background: linear-gradient(135deg, #1a0f0a 0%, #4a2c1a 50%, #8B4513 100%); margin: -30px -30px 30px -30px; padding: 100px 30px; border-radius: 0 0 80px 80px; color: white; text-align: center; position: relative; overflow: hidden;">
+    
+    <!-- Dekorativ fon elementlari -->
+    <div style="position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; background: rgba(255,215,0,0.05); border-radius: 50%; animation: float 8s infinite;"></div>
+    <div style="position: absolute; bottom: -150px; left: -150px; width: 600px; height: 600px; background: rgba(255,215,0,0.03); border-radius: 50%; animation: float 10s infinite reverse;"></div>
+    
+    <!-- Sahifa mazmuni -->
+    <div style="position: relative; z-index: 2;">
+        <div style="font-size: 120px; margin-bottom: 20px; animation: float 3s infinite;">📚</div>
+        <h1 style="font-size: 72px; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-weight: 800;">Kitoblar Olami</h1>
+        <p style="font-size: 24px; max-width: 800px; margin: 0 auto; opacity: 0.95;">Kitoblar haqida qiziqarli faktlar, ajoyib ma'lumotlar va bilimlar xazinasi</p>
+    </div>
+</div>
+
+<!-- ASOSIY STATISTIKA - QIZIQARLI FAKTLAR -->
+<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 80px;">
+    <div class="fact-card" style="background: white; border-radius: 30px; padding: 40px 20px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border-bottom: 5px solid #8B4513;">
+        <div class="stat-circle" style="background: #8B4513; color: white;">130M+</div>
+        <h3 style="color: #333; margin: 20px 0 10px; font-size: 20px;">Eng ko'p sotilgan kitob</h3>
+        <p style="color: #666; line-height: 1.6;">"Ikki shaharning hikoyasi" 200 million nusxada sotilgan</p>
+        <div class="fact-number" style="margin-top: 20px; font-size: 30px; color: #8B4513;">📊</div>
+    </div>
+    
+    <div class="fact-card" style="background: white; border-radius: 30px; padding: 40px 20px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border-bottom: 5px solid #D2691E;">
+        <div class="stat-circle" style="background: #D2691E; color: white;">7,000+</div>
+        <h3 style="color: #333; margin: 20px 0 10px; font-size: 20px;">Eng ko'p tillarga tarjima</h3>
+        <p style="color: #666; line-height: 1.6;">"Kichkina shahzoda" 300 dan ortiq tillarga tarjima qilingan</p>
+        <div class="fact-number" style="margin-top: 20px; font-size: 30px; color: #D2691E;">🌍</div>
+    </div>
+    
+    <div class="fact-card" style="background: white; border-radius: 30px; padding: 40px 20px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border-bottom: 5px solid #8B4513;">
+        <div class="stat-circle" style="background: #8B4513; color: white;">2,500</div>
+        <h3 style="color: #333; margin: 20px 0 10px; font-size: 20px;">Eng qadimgi kitob</h3>
+        <p style="color: #666; line-height: 1.6;">Miloddan avvalgi 2500-yilda yozilgan "Gilgamish dostoni"</p>
+        <div class="fact-number" style="margin-top: 20px; font-size: 30px; color: #8B4513;">📜</div>
+    </div>
+    
+    <div class="fact-card" style="background: white; border-radius: 30px; padding: 40px 20px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border-bottom: 5px solid #D2691E;">
+        <div class="stat-circle" style="background: #D2691E; color: white;">800</div>
+        <h3 style="color: #333; margin: 20px 0 10px; font-size: 20px;">Eng yirik kutubxona</h3>
+        <p style="color: #666; line-height: 1.6;">Britaniya kutubxonasida 170 million dan ortiq asar saqlanadi</p>
+        <div class="fact-number" style="margin-top: 20px; font-size: 30px; color: #D2691E;">🏛️</div>
+    </div>
+</div>
+
+<!-- KITOBLAR HAQIDA QIZIQARLI FAKTLAR - GRID -->
+<h2 style="text-align: center; color: #333; font-size: 48px; margin-bottom: 20px;">📚 Kitoblar haqida qiziqarli faktlar</h2>
+<p style="text-align: center; color: #666; font-size: 20px; margin-bottom: 60px;">Siz bilmagan ajoyib ma'lumotlar</p>
+
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-bottom: 80px;">
+    
+    <!-- 1-fakt -->
+    <div class="fact-card" style="background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); display: flex;">
+        <div style="width: 200px; background: linear-gradient(135deg, #8B4513, #D2691E); display: flex; align-items: center; justify-content: center; font-size: 80px; color: rgba(255,255,255,0.3);">
+            📖
+        </div>
+        <div style="flex: 1; padding: 30px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                <span style="background: #8B4513; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</span>
+                <h3 style="color: #333; font-size: 24px;">Eng qimmat kitob</h3>
+            </div>
+            <p style="color: #666; line-height: 1.8; font-size: 16px;">"Codex Leicester" - Leonardo da Vinchining qo'lyozmasi. Bill Geyts tomonidan 30.8 million dollarga sotib olingan. Bu dunyodagi eng qimmat kitob hisoblanadi.</p>
+            <div style="margin-top: 20px; color: #8B4513; font-weight: 500;">💰 30.8 million $</div>
+        </div>
+    </div>
+    
+    <!-- 2-fakt -->
+    <div class="fact-card" style="background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); display: flex;">
+        <div style="width: 200px; background: linear-gradient(135deg, #D2691E, #8B4513); display: flex; align-items: center; justify-content: center; font-size: 80px; color: rgba(255,255,255,0.3);">
+            📕
+        </div>
+        <div style="flex: 1; padding: 30px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                <span style="background: #D2691E; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</span>
+                <h3 style="color: #333; font-size: 24px;">Eng kichik kitob</h3>
+            </div>
+            <p style="color: #666; line-height: 1.8; font-size: 16px;">Yaponiyada "Shiki no Kusabana" nomli kitob 0.75 mm x 0.75 mm o'lchamda. Uni faqat mikroskop orqali o'qish mumkin. 22 sahifadan iborat.</p>
+            <div style="margin-top: 20px; color: #D2691E; font-weight: 500;">🔬 0.75 mm</div>
+        </div>
+    </div>
+    
+    <!-- 3-fakt -->
+    <div class="fact-card" style="background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); display: flex;">
+        <div style="width: 200px; background: linear-gradient(135deg, #8B4513, #D2691E); display: flex; align-items: center; justify-content: center; font-size: 80px; color: rgba(255,255,255,0.3);">
+            📘
+        </div>
+        <div style="flex: 1; padding: 30px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                <span style="background: #8B4513; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">3</span>
+                <h3 style="color: #333; font-size: 24px;">Eng katta kitob</h3>
+            </div>
+            <p style="color: #666; line-height: 1.8; font-size: 16px;">"This the Prophet Muhammad" kitobi 5 metr x 8 metr o'lchamda, og'irligi 1500 kg. Dubai shahrida namoyish etilgan va Guinness rekordlar kitobiga kiritilgan.</p>
+            <div style="margin-top: 20px; color: #8B4513; font-weight: 500;">📏 5m x 8m | 1500 kg</div>
+        </div>
+    </div>
+    
+    <!-- 4-fakt -->
+    <div class="fact-card" style="background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); display: flex;">
+        <div style="width: 200px; background: linear-gradient(135deg, #D2691E, #8B4513); display: flex; align-items: center; justify-content: center; font-size: 80px; color: rgba(255,255,255,0.3);">
+            📙
+        </div>
+        <div style="flex: 1; padding: 30px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                <span style="background: #D2691E; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">4</span>
+                <h3 style="color: #333; font-size: 24px;">Eng qadimgi kutubxona</h3>
+            </div>
+            <p style="color: #666; line-height: 1.8; font-size: 16px;">Marokashdagi Al-Qarawiyyin kutubxonasi 859-yilda tashkil etilgan. Hozirgi kungacha faoliyat yuritadi va 4000 dan ortiq qo'lyozmalar saqlanadi.</p>
+            <div style="margin-top: 20px; color: #D2691E; font-weight: 500;">📅 859-yildan beri</div>
+        </div>
+    </div>
+</div>
+
+<!-- KITOB REKORDLARI -->
+<div style="background: linear-gradient(135deg, #1a0f0a, #2c1810); margin: 60px -30px; padding: 80px 30px; color: white;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="text-align: center; font-size: 48px; margin-bottom: 60px;">🏆 Kitoblar bo'yicha rekordlar</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
+            <div style="text-align: center; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 30px; backdrop-filter: blur(10px);">
+                <div style="font-size: 60px; margin-bottom: 20px;">✍️</div>
+                <h3 style="font-size: 28px; margin-bottom: 15px;">Eng sermahsul yozuvchi</h3>
+                <p style="font-size: 20px; margin-bottom: 10px; color: #FFD700;">L. Ron Hubbard</p>
+                <p style="opacity: 0.8;">1084 ta kitob yozgan</p>
+            </div>
+            
+            <div style="text-align: center; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 30px; backdrop-filter: blur(10px);">
+                <div style="font-size: 60px; margin-bottom: 20px;">📚</div>
+                <h3 style="font-size: 28px; margin-bottom: 15px;">Eng ko'p o'qilgan kitob</h3>
+                <p style="font-size: 20px; margin-bottom: 10px; color: #FFD700;">"Sherlock Holmes"</p>
+                <p style="opacity: 0.8;">60 million nusxa</p>
+            </div>
+            
+            <div style="text-align: center; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 30px; backdrop-filter: blur(10px);">
+                <div style="font-size: 60px; margin-bottom: 20px;">⏱️</div>
+                <h3 style="font-size: 28px; margin-bottom: 15px;">Eng uzoq yozilgan kitob</h3>
+                <p style="font-size: 20px; margin-bottom: 10px; color: #FFD700;">"Faust"</p>
+                <p style="opacity: 0.8;">57 yil davomida yozilgan</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MASHHUR KITOBLAR VA ULARNING TA'SIRI -->
+<div style="margin: 80px 0;">
+    <h2 style="text-align: center; color: #333; font-size: 42px; margin-bottom: 20px;">📖 Tarixga ta'sir qilgan kitoblar</h2>
+    <p style="text-align: center; color: #666; font-size: 18px; margin-bottom: 50px;">Dunyoni o'zgartirgan 5 ta kitob</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;">
+        <div style="text-align: center;">
+            <div style="width: 100%; aspect-ratio: 2/3; background: linear-gradient(135deg, #8B4513, #D2691E); border-radius: 20px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 50px; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+                📜
+            </div>
+            <h4 style="color: #333; margin-bottom: 5px;">Das Kapital</h4>
+            <p style="color: #999; font-size: 13px;">Karl Marks</p>
+            <span style="background: #8B4513; color: white; padding: 3px 10px; border-radius: 20px; font-size: 12px;">Siyosiy</span>
+        </div>
+        
+        <div style="text-align: center;">
+            <div style="width: 100%; aspect-ratio: 2/3; background: linear-gradient(135deg, #D2691E, #8B4513); border-radius: 20px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 50px; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+                🔬
+            </div>
+            <h4 style="color: #333; margin-bottom: 5px;">Origin of Species</h4>
+            <p style="color: #999; font-size: 13px;">Charlz Darvin</p>
+            <span style="background: #D2691E; color: white; padding: 3px 10px; border-radius: 20px; font-size: 12px;">Ilmiy</span>
+        </div>
+        
+        <div style="text-align: center;">
+            <div style="width: 100%; aspect-ratio: 2/3; background: linear-gradient(135deg, #8B4513, #D2691E); border-radius: 20px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 50px; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+                ☮️
+            </div>
+            <h4 style="color: #333; margin-bottom: 5px;">1984</h4>
+            <p style="color: #999; font-size: 13px;">Jorj Oruell</p>
+            <span style="background: #8B4513; color: white; padding: 3px 10px; border-radius: 20px; font-size: 12px;">Antiuptoya</span>
+        </div>
+        
+        <div style="text-align: center;">
+            <div style="width: 100%; aspect-ratio: 2/3; background: linear-gradient(135deg, #D2691E, #8B4513); border-radius: 20px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 50px; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+                💡
+            </div>
+            <h4 style="color: #333; margin-bottom: 5px;">Qur'an</h4>
+            <p style="color: #999; font-size: 13px;">-</p>
+            <span style="background: #D2691E; color: white; padding: 3px 10px; border-radius: 20px; font-size: 12px;">Diniy</span>
+        </div>
+        
+        <div style="text-align: center;">
+            <div style="width: 100%; aspect-ratio: 2/3; background: linear-gradient(135deg, #8B4513, #D2691E); border-radius: 20px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 50px; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+                🌍
+            </div>
+            <h4 style="color: #333; margin-bottom: 5px;">The Prince</h4>
+            <p style="color: #999; font-size: 13px;">Makiavelli</p>
+            <span style="background: #8B4513; color: white; padding: 3px 10px; border-radius: 20px; font-size: 12px;">Siyosiy</span>
+        </div>
+    </div>
+</div>
+
+<!-- ENG QIZIQARLI 10 FAKT -->
+<div style="background: #f9f9f9; border-radius: 50px; padding: 60px; margin: 60px 0;">
+    <h2 style="text-align: center; color: #333; font-size: 42px; margin-bottom: 50px;">✨ Eng qiziqarli 10 ta fakt</h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+        <div style="display: flex; gap: 20px; align-items: start;">
+            <div style="background: #8B4513; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold;">1</div>
+            <p style="color: #666; line-height: 1.8;">Dunyodagi eng ko'p sotilgan kitob - "Ikki shaharning hikoyasi" (200 million nusxa)</p>
+        </div>
+        
+        <div style="display: flex; gap: 20px; align-items: start;">
+            <div style="background: #D2691E; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold;">2</div>
+            <p style="color: #666; line-height: 1.8;">Eng qisqa kitob - "Baby Shoes" atigi 6 so'zdan iborat (Xeminguey)</p>
+        </div>
+        
+        <div style="display: flex; gap: 20px; align-items: start;">
+            <div style="background: #8B4513; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold;">3</div>
+            <p style="color: #666; line-height: 1.8;">Garri Potter kitoblari 80 tillarga tarjima qilingan</p>
+        </div>
+        
+        <div style="display: flex; gap: 20px; align-items: start;">
+            <div style="background: #D2691E; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold;">4</div>
+            <p style="color: #666; line-height: 1.8;">Eng keksa muallif - 102 yoshli yapon shoiri</p>
+        </div>
+        
+        <div style="display: flex; gap: 20px; align-items: start;">
+            <div style="background: #8B4513; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold;">5</div>
+            <p style="color: #666; line-height: 1.8;">Kitob o'qish stressni 68% ga kamaytiradi</p>
+        </div>
+        
+        <div style="display: flex; gap: 20px; align-items: start;">
+            <div style="background: #D2691E; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold;">6</div>
+            <p style="color: #666; line-height: 1.8;">O'rtacha kitob 300-400 sahifadan iborat</p>
+        </div>
+        
+        <div style="display: flex; gap: 20px; align-items: start;">
+            <div style="background: #8B4513; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold;">7</div>
+            <p style="color: #666; line-height: 1.8;">Dunyoda har yili 2.2 million yangi kitob nashr etiladi</p>
+        </div>
+        
+        <div style="display: flex; gap: 20px; align-items: start;">
+            <div style="background: #D2691E; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold;">8</div>
+            <p style="color: #666; line-height: 1.8;">Eng qadimgi kitob - "Etrusk Gold Book" (miloddan avvalgi 600 yil)</p>
+        </div>
+        
+        <div style="display: flex; gap: 20px; align-items: start;">
+            <div style="background: #8B4513; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold;">9</div>
+            <p style="color: #666; line-height: 1.8;">Shekspir 884,647 so'z ishlatgan</p>
+        </div>
+        
+        <div style="display: flex; gap: 20px; align-items: start;">
+            <div style="background: #D2691E; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold;">10</div>
+            <p style="color: #666; line-height: 1.8;">Kuniga 15 daqiqa o'qish hayotingizni uzaytiradi</p>
+        </div>
+    </div>
+</div>
+
+<!-- KITOB KUNI -->
+<div style="background: linear-gradient(135deg, #8B4513, #D2691E); border-radius: 40px; padding: 50px; margin: 60px 0; color: white; text-align: center;">
+    <h2 style="font-size: 48px; margin-bottom: 20px;">📅 Xalqaro kitob kuni</h2>
+    <p style="font-size: 24px; margin-bottom: 30px; opacity: 0.95;">23-aprel - Butun dunyoda kitob kuni sifatida nishonlanadi</p>
+    <div style="display: flex; justify-content: center; gap: 30px;">
+        <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 20px;">
+            <div style="font-size: 40px; margin-bottom: 5px;">📚</div>
+            <div style="font-weight: bold;">100+</div>
+            <div>mamlakat</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 20px;">
+            <div style="font-size: 40px; margin-bottom: 5px;">🎉</div>
+            <div style="font-weight: bold;">1,000+</div>
+            <div>tadbir</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 20px;">
+            <div style="font-size: 40px; margin-bottom: 5px;">🌍</div>
+            <div style="font-weight: bold;">1995</div>
+            <div>yildan beri</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

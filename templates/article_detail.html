@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+{% block content %}
+<article>
+    <h1>{{ article.title }}</h1>
+    
+    <div class="meta-info" style="margin: 20px 0; padding: 15px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
+        <span>👤 {{ article.author.username }}</span>
+        <span>📅 {{ article.created_date|date:"d-M-Y" }}</span>
+        <span>🏷️ {{ article.category.name|default:"Uncategorized" }}</span>
+        <span>💬 {{ article.comments_count }} Comments</span>
+    </div>
+    
+    <div style="line-height: 1.8; color: #444; font-size: 18px; margin: 30px 0;">
+        {{ article.content|linebreaks }}
+    </div>
+    
+    <div style="margin-top: 50px;">
+        <h3 style="margin-bottom: 20px;">💬 Kommentariyalar ({{ comments.count }})</h3>
+        
+        {% if user.is_authenticated %}
+            <form method="post" style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>Kommentariya qoldirish:</label>
+                    <textarea name="comment" rows="3" required placeholder="Fikringizni yozing..."></textarea>
+                </div>
+                <button type="submit" class="btn">Yuborish</button>
+            </form>
+        {% else %}
+            <p style="background: #fff3cd; color: #856404; padding: 15px; border-radius: 10px; margin-bottom: 30px;">
+                Kommentariya qoldirish uchun <a href="/login/" style="color: #856404; font-weight: bold;">kiring</a>
+            </p>
+        {% endif %}
+        
+        {% for comment in comments %}
+            <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <strong>{{ comment.user.username }}</strong>
+                    <small style="color: #999;">{{ comment.created_date|date:"d-M-Y H:i" }}</small>
+                </div>
+                <p>{{ comment.text }}</p>
+            </div>
+        {% empty %}
+            <p style="color: #999; text-align: center;">Hozircha kommentariyalar yo'q</p>
+        {% endfor %}
+    </div>
+</article>
+{% endblock %}
+</body>
+</html>

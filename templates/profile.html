@@ -1,0 +1,320 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .profile-card {
+        background: white;
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Header qismi - FON VA MATN RANGI TO'G'RILANDI */
+    .profile-header {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        padding: 50px 30px;
+        text-align: center;
+        position: relative;
+    }
+
+    .profile-avatar {
+        width: 140px;
+        height: 140px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        border: 5px solid rgba(255,255,255,0.3);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .profile-avatar span {
+        font-size: 70px;
+    }
+
+ /* HUSAN yozuvi - GRADIENT + SOYA */
+.profile-header h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #FFFFFF, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Title yozuvi - OQ + SOYA */
+.profile-header .title {
+    font-size: 18px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    display: inline-block;
+    padding: 8px 28px;
+    border-radius: 40px;
+    margin-top: 12px;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+    /* Content qismi */
+    .profile-content {
+        padding: 40px;
+    }
+
+    /* Info grid */
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-bottom: 35px;
+    }
+
+    .info-item {
+        background: #f8f9fa;
+        padding: 18px 20px;
+        border-radius: 15px;
+        transition: all 0.3s;
+        border-left: 4px solid #667eea;
+    }
+
+    .info-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .info-label {
+        font-size: 13px;
+        color: #888;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .info-value {
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    /* About qismi */
+    .about-section {
+        background: #f8f9fa;
+        border-radius: 20px;
+        padding: 25px;
+        margin-bottom: 35px;
+    }
+
+    .about-section h3 {
+        color: #333;
+        font-size: 22px;
+        margin-bottom: 18px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 2px solid #667eea;
+        padding-bottom: 10px;
+    }
+
+    .about-section p {
+        color: #555;
+        line-height: 1.8;
+        font-size: 15px;
+    }
+
+    /* Skills qismi */
+    .skills-section {
+        margin-bottom: 35px;
+    }
+
+    .skills-section h3 {
+        color: #333;
+        font-size: 22px;
+        margin-bottom: 18px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .skill-tag {
+        background: linear-gradient(135deg, #667eea20, #764ba220);
+        color: #667eea;
+        padding: 8px 22px;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.3s;
+        cursor: default;
+    }
+
+    .skill-tag:hover {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    /* Social links */
+    .social-section {
+        text-align: center;
+        padding-top: 25px;
+        border-top: 1px solid #eee;
+    }
+
+    .social-section h3 {
+        color: #333;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .social-link {
+        background: #f0f0f0;
+        color: #333;
+        padding: 12px 28px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .social-link:hover {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        transform: translateY(-3px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .info-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .profile-content {
+            padding: 25px;
+        }
+        
+        .profile-header h1 {
+            font-size: 28px;
+        }
+        
+        .profile-header .title {
+            font-size: 14px;
+        }
+    }
+</style>
+
+<div class="container" style="max-width: 1000px; margin: 40px auto; padding: 0 20px;">
+    <div class="profile-card">
+        <!-- Header qismi -->
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <span>👨‍💻</span>
+            </div>
+            <!-- HUSAN yozuvi - Oq rangda ko'rinadi -->
+            <h1>Husan</h1>
+            <div class="title">Dasturchi | Backend Mutaxassisi</div>
+        </div>
+
+        <!-- Content qismi -->
+        <div class="profile-content">
+            <!-- Shaxsiy ma'lumotlar gridi -->
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label"><span>👤</span> Ism</div>
+                    <div class="info-value">Husan</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label"><span>🎂</span> Yosh</div>
+                    <div class="info-value">14 yosh</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label"><span>📍</span> Manzil</div>
+                    <div class="info-value">Toshkent, O'zbekiston</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label"><span>💼</span> Tajriba</div>
+                    <div class="info-value">3+ yil</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label"><span>📷</span>Instagram</div>
+                    <div class="info-value">husan_6970</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label"><span>📱</span> Telefon</div>
+                    <div class="info-value">+998 90 123 45 67</div>
+                </div>
+            </div>
+
+            <!-- Men haqimda -->
+            <div class="about-section">
+                <h3><span>📝</span> Men haqimda</h3>
+                <p>
+                    Assalomu alaykum! Men <strong>Husan</strong>, Full Stack dasturchi. Backend dasturlashga ixtisoslashganman.
+                    Django, Django REST Framework, va Python texnologiyalarida ishlayman. 3 yildan ortiq tajribaga egaman.
+                    Hozirda Mars IT School'da intern va dasturchi sifatida faoliyat yuritaman.
+                </p>
+                <br>
+                <p>
+                    Dasturlashga qiziqishim 2024-yilda boshlangan. O'shandan beri bir nechta loyihalarda qatnashganman.
+                    O'z bilimlarimni yoshlarga o'rgatish va ularga IT sohasida ko'maklashish men uchun katta zavq.
+                </p>
+            </div>
+
+            <!-- Bilimlar -->
+            <div class="skills-section">
+                <h3><span>⚡</span> Texnologiyalar</h3>
+                <div class="skills-grid">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Django</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">Git/GitHub</span>
+                    <span class="skill-tag">REST API</span>
+                 
+                </div>
+            </div>
+
+            <!-- Ijtimoiy tarmoqlar -->
+            <div class="social-section">
+                <h3>📱 Ijtimoiy tarmoqlar</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link"><span>💻</span> GitHub</a>
+                    <a href="#" class="social-link"><span>📧</span> Telegram</a>
+                    <a href="#" class="social-link"><span>🔗</span> LinkedIn</a>
+                    <a href="#" class="social-link"><span>📷</span> Instagram</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
