@@ -14,3 +14,5 @@ from django.core.asgi import get_asgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'library_site.settings')
 
 application = get_asgi_application()
+
+# This application is used for deploying the Django project using ASGI servers like Daphne or Uvicorn.
